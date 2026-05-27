@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus | 未来云存储</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 密码登录弹窗 -->
+  <div class="login-box" id="loginBox">
+    <div class="login-card glass neon-glow">
+      <h2 class="neon-text">Nexus 云盘</h2>
+      <p>请输入访问密码</p>
+      <input type="password" id="pwdInput" placeholder="请输入密码" maxlength="4">
+      <button id="loginBtn" class="upload-btn">确认进入</button>
+      <!-- <span class="tip">默认密码：2006</span> -->
+    </div>
+  </div>
+
+  <!-- 云盘主界面（默认隐藏） -->
+  <div class="app-container" id="mainBox" style="display: none;">
+    <div class="sidebar glass">
+      <div class="logo">
+        <i class="fas fa-cloud"></i>
+        <h2 class="neon-text">Nexus</h2>
+      </div>
+      
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a class="nav-link active" onclick="switchGroup('all')">
+            <i class="fas fa-home"></i>
+            <span>所有文件</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="group-section">
+        <div class="group-header">
+          <h3>我的分组</h3>
+          <button id="addGroupBtn" class="neon-text"><i class="fas fa-plus"></i></button>
+        </div>
+        <ul id="groupList" class="group-list"></ul>
+      </div>
+      
+      <div class="storage-card glass neon-glow">
+        <div class="storage-title">存储空间</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="storageProgress"></div>
+        </div>
+        <div class="storage-info" id="storageText"></div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="header">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="搜索文件...">
+        </div>
+        <div class="user-controls">
+          <button class="upload-btn" id="uploadBtn">
+            <i class="fas fa-cloud-upload"></i>
+            上传文件
+          </button>
+          <input type="file" id="fileInput" multiple style="display:none;">
+          <div class="user-avatar">U</div>
+        </div>
+      </div>
+
+      <h2 class="section-title" id="currentGroupTitle">
+        <i class="fas fa-folder-open neon-text"></i>
+        所有文件
+      </h2>
+
+      <div class="files-grid" id="filesGrid"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
