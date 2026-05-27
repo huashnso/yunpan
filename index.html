@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<!-- 开启移动端视口适配 -->
+<html lang="zh-CN" meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <head>
   <meta charset="UTF-8">
+  <!-- 移动端核心适配配置 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Nexus | 云盘</title>
+  <title>HHSO | 云盘</title>
+  <!-- 字体图标库 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 样式文件 -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- 登录界面 -->
+<!-- 密码登录界面 -->
 <div class="login-wrapper" id="loginWrapper">
   <div class="login-card glass neon-glow">
-    <h2 class="neon-text">无限云盘</h2>
+    <h2 class="neon-text">云盘管理</h2>
     <input type="password" id="pwd" placeholder="请输入密码" maxlength="4">
     <button onclick="login()">进入</button>
     <!-- <div class="tip">密码：2006</div> -->
   </div>
 </div>
 
-<!-- 主界面 -->
+<!-- 主界面（移动端+PC端通用） -->
 <div class="container" id="mainContainer" style="display:none;">
+  <!-- 左侧侧边栏（手机端顶部导航） -->
   <div class="sidebar glass">
     <div class="logo">
       <i class="fas fa-cloud"></i>
       <h3 class="neon-text">无限云盘</h3>
     </div>
 
+    <!-- 分组区域 -->
     <div class="group-bar">
       <div class="group-head">
         <span>文件分组</span>
@@ -35,13 +41,15 @@
       <ul id="groupList"></ul>
     </div>
 
+    <!-- 存储空间 -->
     <div class="storage-card glass">
       <div class="storage-title">存储空间</div>
       <div class="progress-bar"><div id="progressBar"></div></div>
-      <div id="storageText">0B / 云端无限</div>
+      <div id="storageText">0B / 20GB</div>
     </div>
   </div>
 
+  <!-- 主内容区 -->
   <div class="main">
     <div class="top-bar">
       <div class="search-box">
@@ -56,16 +64,18 @@
       </div>
     </div>
 
+    <!-- 拖拽上传区域 -->
     <div class="drop-area" id="dropArea">
       <i class="fas fa-cloud-upload-alt"></i>
       <p>将文件拖拽到此处上传</p>
     </div>
 
+    <!-- 文件列表 -->
     <div class="file-list" id="fileList"></div>
   </div>
 </div>
 
-<!-- 图片预览 -->
+<!-- 图片预览弹窗（移动端适配） -->
 <div class="preview-modal" id="previewModal">
   <div class="preview-box">
     <span class="close-btn" onclick="closePreview()"><i class="fas fa-times"></i></span>
@@ -73,8 +83,7 @@
   </div>
 </div>
 
-<!-- 云端核心 SDK -->
-<script src="https://js.puter.com/v2/"></script>
+<!-- 交互脚本 -->
 <script src="js/main.js"></script>
 </body>
 </html>
