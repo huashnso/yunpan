@@ -1,21 +1,34 @@
+/* 全局样式重置 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
+  /* 禁止移动端长按选中 */
+  -webkit-user-select: none;
+  user-select: none;
 }
+
 body {
   background: #0b101a;
   color: #fff;
+  /* 适配移动端滚动 */
+  overflow-x: hidden;
 }
+
+/* 毛玻璃样式 */
 .glass {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0,220,255,0.2);
 }
+
+/* 霓虹发光 */
 .neon-glow {
   box-shadow: 0 0 15px rgba(0,220,255,0.3);
 }
+
+/* 渐变文字 */
 .neon-text {
   background: linear-gradient(90deg, #00dcff, #7b2cbf);
   -webkit-background-clip: text;
@@ -23,26 +36,29 @@ body {
   color: transparent;
 }
 
-/* 登录 */
+/* ========== 登录界面（全局适配） ========== */
 .login-wrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 .login-card {
-  width: 340px;
-  padding: 40px;
+  width: 100%;
+  max-width: 340px;
+  padding: 40px 25px;
   border-radius: 16px;
   text-align: center;
 }
 .login-card h2 {
   margin-bottom: 25px;
+  font-size: 22px;
 }
 .login-card input {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin-bottom: 15px;
   border-radius: 8px;
   background: rgba(255,255,255,0.07);
@@ -50,15 +66,17 @@ body {
   color: #fff;
   outline: none;
   text-align: center;
+  font-size: 16px;
 }
 .login-card button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border-radius: 8px;
   background: linear-gradient(90deg, #00dcff, #7b2cbf);
   color: #fff;
   border: none;
   cursor: pointer;
+  font-size: 16px;
 }
 .tip {
   margin-top: 10px;
@@ -66,7 +84,7 @@ body {
   color: #aaa;
 }
 
-/* 布局 */
+/* ========== PC端默认布局（屏幕宽度 ≥ 768px） ========== */
 .container {
   display: flex;
   height: 100vh;
@@ -75,6 +93,7 @@ body {
   width: 240px;
   padding: 20px;
   height: 100vh;
+  overflow-y: auto;
 }
 .logo {
   display: flex;
@@ -87,7 +106,7 @@ body {
   font-size: 20px;
 }
 
-/* 分组 */
+/* 分组区域 */
 .group-bar {
   margin-top: 20px;
 }
@@ -103,17 +122,21 @@ body {
   border: none;
   color: #00dcff;
   cursor: pointer;
+  font-size: 16px;
 }
 #groupList {
   list-style: none;
   margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 #groupList li {
-  padding: 8px 10px;
+  padding: 10px 10px;
   border-radius: 6px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 4px;
 }
 #groupList li:hover,
 #groupList li.active {
@@ -122,14 +145,15 @@ body {
 }
 .group-actions {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   font-size: 12px;
 }
 .group-actions span {
   cursor: pointer;
+  padding: 2px 4px;
 }
 
-/* 存储条 */
+/* 存储进度条 */
 .storage-card {
   margin-top: 30px;
   padding: 15px;
@@ -157,7 +181,7 @@ body {
   margin-top: 6px;
 }
 
-/* 主内容 */
+/* 主内容区 */
 .main {
   flex: 1;
   padding: 30px;
@@ -168,9 +192,12 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  gap: 15px;
 }
 .search-box {
   position: relative;
+  flex: 1;
+  max-width: 300px;
 }
 .search-box input {
   padding: 10px 12px 10px 35px;
@@ -179,7 +206,7 @@ body {
   border: 1px solid rgba(0,220,255,0.2);
   color: #fff;
   outline: none;
-  width: 300px;
+  width: 100%;
 }
 .search-box i {
   position: absolute;
@@ -194,13 +221,14 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
+  font-size: 14px;
 }
 
 /* 拖拽上传区域 */
 .drop-area {
   border: 2px dashed rgba(0,220,255,0.3);
   border-radius: 12px;
-  padding: 40px;
+  padding: 40px 20px;
   text-align: center;
   margin-bottom: 25px;
   transition: 0.3s;
@@ -255,9 +283,10 @@ body {
   gap: 6px;
   font-size: 12px;
   margin-top: 8px;
+  flex-wrap: wrap;
 }
 .file-actions button {
-  padding: 4px 6px;
+  padding: 5px 8px;
   border-radius: 4px;
   background: rgba(0,220,255,0.1);
   color: #00dcff;
@@ -277,22 +306,87 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  padding: 15px;
 }
 .preview-box {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .preview-box img {
   max-width: 100%;
   max-height: 85vh;
   border-radius: 8px;
+  object-fit: contain;
 }
 .close-btn {
   position: absolute;
-  top: -30px;
-  right: 0;
-  font-size: 24px;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
   color: #fff;
   cursor: pointer;
+}
+
+/* ========== 移动端专属样式（屏幕宽度 < 768px 手机） ========== */
+@media (max-width: 767px) {
+  /* 整体改为上下布局 */
+  .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+  /* 侧边栏改为顶部导航栏，全屏宽度 */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+  .logo {
+    margin-bottom: 15px;
+  }
+  /* 分组列表横向滚动，适配手机窄屏 */
+  #groupList {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    max-height: none;
+    padding-bottom: 5px;
+  }
+  #groupList li {
+    flex-shrink: 0;
+    padding: 8px 12px;
+  }
+  /* 主内容区缩小内边距 */
+  .main {
+    padding: 15px;
+    flex: 1;
+  }
+  /* 顶部工具栏：换行布局 */
+  .top-bar {
+    flex-wrap: wrap;
+  }
+  .search-box {
+    max-width: 100%;
+    width: 100%;
+  }
+  /* 拖拽区域缩小内边距 */
+  .drop-area {
+    padding: 25px 15px;
+  }
+  /* 文件列表：单列展示，适配手机 */
+  .file-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  /* 按钮增大点击区域（手机触控） */
+  .file-actions button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  .upload-btn {
+    padding: 12px 15px;
+  }
 }
