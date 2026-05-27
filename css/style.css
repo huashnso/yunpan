@@ -2,386 +2,239 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-family: Arial, sans-serif;
 }
-
-:root {
-  --bg-primary: #0a0e17;
-  --glass-bg: rgba(255,255,255,0.05);
-  --neon-blue: #00e5ff;
-  --neon-purple: #7b2cbf;
-  --neon-pink: #ff2b9d;
-  --text-primary: #e0e0e0;
-  --text-secondary: #a0a0b0;
-  --border-color: rgba(0,229,255,0.2);
-  --gradient-primary: linear-gradient(135deg, #00e5ff, #7b2cbf);
-}
-
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  overflow-x: hidden;
+  background: #0b101a;
+  color: #fff;
 }
-
 .glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,220,255,0.2);
 }
-
 .neon-glow {
-  box-shadow: 0 0 15px rgba(0,229,255,0.3);
+  box-shadow: 0 0 15px rgba(0,220,255,0.3);
 }
-
 .neon-text {
-  background: var(--gradient-primary);
+  background: linear-gradient(90deg, #00dcff, #7b2cbf);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
-/* 密码登录弹窗 */
-.login-box {
+/* 登录 */
+.login-wrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
 }
 .login-card {
-  width: 320px;
-  padding: 40px 30px;
+  width: 340px;
+  padding: 40px;
   border-radius: 16px;
   text-align: center;
 }
 .login-card h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-.login-card p {
-  color: var(--text-secondary);
   margin-bottom: 25px;
-  font-size: 14px;
 }
-#pwdInput {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 8px;
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
-  color: #fff;
-  font-size: 16px;
-  outline: none;
-  margin-bottom: 20px;
-  text-align: center;
-  letter-spacing: 4px;
-}
-.login-card .upload-btn {
+.login-card input {
   width: 100%;
   padding: 12px;
-  font-size: 16px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(0,220,255,0.3);
+  color: #fff;
+  outline: none;
+  text-align: center;
+}
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #00dcff, #7b2cbf);
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 .tip {
-  display: inline-block;
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 12px;
-  color: var(--text-secondary);
+  color: #aaa;
 }
 
-/* 主界面布局 */
-.app-container {
+/* 布局 */
+.container {
   display: flex;
-}
-
-.sidebar {
-  width: 260px;
   height: 100vh;
-  position: fixed;
-  padding: 2rem 1rem;
-  border-right: 1px solid var(--border-color);
 }
-
+.sidebar {
+  width: 240px;
+  padding: 20px;
+  height: 100vh;
+}
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 2rem;
+  gap: 10px;
+  margin-bottom: 30px;
 }
-
 .logo i {
-  font-size: 1.8rem;
-  color: var(--neon-blue);
+  color: #00dcff;
+  font-size: 20px;
 }
 
-.nav-menu {
-  list-style: none;
-  margin-bottom: 2rem;
+/* 分组 */
+.group-bar {
+  margin-top: 20px;
 }
-
-.nav-item {
-  margin-bottom: 0.5rem;
-}
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1.2rem;
-  border-radius: 10px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.nav-link:hover, .nav-link.active {
-  background: var(--glass-bg);
-  color: var(--neon-blue);
-}
-
-/* 分组样式 */
-.group-section {
-  margin-top: 1rem;
-}
-
-.group-header {
+.group-head {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  margin-bottom: 1rem;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #ccc;
 }
-
-.group-header h3 {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-}
-
-#addGroupBtn {
+.group-head button {
   background: none;
   border: none;
-  color: var(--neon-blue);
-  font-size: 1rem;
+  color: #00dcff;
   cursor: pointer;
 }
-
-.group-list {
+#groupList {
   list-style: none;
-  max-height: 220px;
-  overflow-y: auto;
+  margin-top: 10px;
 }
-
-.group-item {
+#groupList li {
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: 0.2s;
-  position: relative;
 }
-
-.group-item:hover {
-  background: var(--glass-bg);
-  color: var(--neon-blue);
+#groupList li:hover,
+#groupList li.active {
+  background: rgba(0,220,255,0.1);
+  color: #00dcff;
 }
-
-.group-item.active {
-  background: var(--glass-bg);
-  color: var(--neon-blue);
-}
-
-.group-name {
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.group-count {
-  font-size: 0.75rem;
-  margin: 0 6px;
-  color: var(--text-secondary);
-}
-
-.group-ops {
+.group-actions {
   display: flex;
   gap: 6px;
+  font-size: 12px;
+}
+.group-actions span {
+  cursor: pointer;
 }
 
-.group-rename, .group-delete {
-  font-size: 0.7rem;
-  opacity: 0.7;
-  padding: 2px 4px;
+/* 存储条 */
+.storage-card {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 10px;
+}
+.storage-title {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+.progress-bar {
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-bar div {
+  height: 100%;
+  background: linear-gradient(90deg, #00dcff, #7b2cbf);
+  width: 0%;
+}
+#storageText {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 6px;
 }
 
-.group-rename {
-  color: var(--neon-blue);
-}
-.group-delete {
-  color: var(--neon-pink);
-}
-
-/* 主体内容 */
-.main-content {
+/* 主内容 */
+.main {
   flex: 1;
-  margin-left: 260px;
-  padding: 2rem 3rem;
+  padding: 30px;
+  overflow-y: auto;
 }
-
-.header {
+.top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 25px;
 }
-
 .search-box {
   position: relative;
-  width: 380px;
 }
-
 .search-box input {
-  width: 100%;
-  padding: 0.9rem 1rem 0.9rem 2.8rem;
-  border-radius: 12px;
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
+  padding: 10px 12px 10px 35px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,220,255,0.2);
   color: #fff;
   outline: none;
+  width: 300px;
 }
-
 .search-box i {
   position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-secondary);
+  left: 12px;
+  top: 11px;
+  color: #aaa;
 }
-
 .upload-btn {
-  padding: 0.9rem 1.8rem;
-  border-radius: 12px;
-  background: var(--gradient-primary);
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #00dcff, #7b2cbf);
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.upload-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,229,255,0.3);
-}
-
-.user-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--gradient-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.files-grid {
+/* 文件列表 */
+.file-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px,1fr));
+  gap: 15px;
 }
-
-.file-card {
-  padding: 1.2rem;
+.file-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,220,255,0.1);
+  padding: 15px;
   border-radius: 12px;
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
-  transition: 0.3s;
-  cursor: pointer;
 }
-
-.file-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(0,229,255,0.2);
-}
-
 .file-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  background: rgba(0,229,255,0.1);
-  color: var(--neon-blue);
+  font-size: 30px;
+  color: #00dcff;
+  margin-bottom: 10px;
 }
-
 .file-name {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.file-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+.file-size {
+  font-size: 12px;
+  color: #aaa;
+  margin: 5px 0;
 }
-
 .file-actions {
   display: flex;
-  gap: 0.4rem;
-  margin-top: 0.8rem;
-  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  margin-top: 8px;
 }
-
-.file-actions button, .file-actions select {
+.file-actions button {
   padding: 4px 6px;
-  border-radius: 6px;
+  border-radius: 4px;
+  background: rgba(0,220,255,0.1);
+  color: #00dcff;
   border: none;
-  font-size: 11px;
   cursor: pointer;
-  background: rgba(0,229,255,0.1);
-  color: var(--neon-blue);
-  outline: none;
-}
-
-.storage-card {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border-radius: 12px;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: var(--gradient-primary);
-  border-radius: 10px;
-}
-
-.storage-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-top: 0.5rem;
 }
