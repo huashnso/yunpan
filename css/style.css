@@ -1,8 +1,10 @@
+/* 全局样式重置 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
+  /* 禁止移动端长按选中 */
   -webkit-user-select: none;
   user-select: none;
 }
@@ -10,19 +12,23 @@
 body {
   background: #0b101a;
   color: #fff;
+  /* 适配移动端滚动 */
   overflow-x: hidden;
 }
 
+/* 毛玻璃样式 */
 .glass {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0,220,255,0.2);
 }
 
+/* 霓虹发光 */
 .neon-glow {
   box-shadow: 0 0 15px rgba(0,220,255,0.3);
 }
 
+/* 渐变文字 */
 .neon-text {
   background: linear-gradient(90deg, #00dcff, #7b2cbf);
   -webkit-background-clip: text;
@@ -30,7 +36,7 @@ body {
   color: transparent;
 }
 
-/* 登录 */
+/* ========== 登录界面（全局适配） ========== */
 .login-wrapper {
   width: 100vw;
   height: 100vh;
@@ -78,7 +84,7 @@ body {
   color: #aaa;
 }
 
-/* 布局 */
+/* ========== PC端默认布局（屏幕宽度 ≥ 768px） ========== */
 .container {
   display: flex;
   height: 100vh;
@@ -100,7 +106,7 @@ body {
   font-size: 20px;
 }
 
-/* 分组 */
+/* 分组区域 */
 .group-bar {
   margin-top: 20px;
 }
@@ -147,7 +153,7 @@ body {
   padding: 2px 4px;
 }
 
-/* 存储条 */
+/* 存储进度条 */
 .storage-card {
   margin-top: 30px;
   padding: 15px;
@@ -175,7 +181,7 @@ body {
   margin-top: 6px;
 }
 
-/* 主内容 */
+/* 主内容区 */
 .main {
   flex: 1;
   padding: 30px;
@@ -218,7 +224,7 @@ body {
   font-size: 14px;
 }
 
-/* 拖拽区域 */
+/* 拖拽上传区域 */
 .drop-area {
   border: 2px dashed rgba(0,220,255,0.3);
   border-radius: 12px;
@@ -288,7 +294,7 @@ body {
   cursor: pointer;
 }
 
-/* 预览 */
+/* 图片预览弹窗 */
 .preview-modal {
   position: fixed;
   top: 0;
@@ -325,12 +331,14 @@ body {
   cursor: pointer;
 }
 
-/* 手机端 */
+/* ========== 移动端专属样式（屏幕宽度 < 768px 手机） ========== */
 @media (max-width: 767px) {
+  /* 整体改为上下布局 */
   .container {
     flex-direction: column;
     height: 100vh;
   }
+  /* 侧边栏改为顶部导航栏，全屏宽度 */
   .sidebar {
     width: 100%;
     height: auto;
@@ -339,6 +347,7 @@ body {
   .logo {
     margin-bottom: 15px;
   }
+  /* 分组列表横向滚动，适配手机窄屏 */
   #groupList {
     display: flex;
     gap: 8px;
@@ -350,10 +359,12 @@ body {
     flex-shrink: 0;
     padding: 8px 12px;
   }
+  /* 主内容区缩小内边距 */
   .main {
     padding: 15px;
     flex: 1;
   }
+  /* 顶部工具栏：换行布局 */
   .top-bar {
     flex-wrap: wrap;
   }
@@ -361,13 +372,16 @@ body {
     max-width: 100%;
     width: 100%;
   }
+  /* 拖拽区域缩小内边距 */
   .drop-area {
     padding: 25px 15px;
   }
+  /* 文件列表：单列展示，适配手机 */
   .file-list {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+  /* 按钮增大点击区域（手机触控） */
   .file-actions button {
     padding: 6px 10px;
     font-size: 13px;
